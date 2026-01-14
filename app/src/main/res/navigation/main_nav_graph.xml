@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/auth_fragment">
+
+    <!-- Экран авторизации -->
+    <fragment
+        android:id="@+id/auth_fragment"
+        android:name="com.example.feature_auth.presentation.AuthFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_main">
+        <!-- Переход на главный экран после входа -->
+        <action
+            android:id="@+id/action_auth_to_main"
+            app:destination="@id/main_fragment"
+            app:popUpTo="@id/auth_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Главный экран (с BottomBar внутри) -->
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.feature_main.presentation.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main" />
+
+</navigation>
