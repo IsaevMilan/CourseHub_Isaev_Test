@@ -1,5 +1,4 @@
-package com.example.core.network
-
+package com.example.core.di
 
 import dagger.Module
 import dagger.Provides
@@ -14,7 +13,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("https://твоя-апи.ком/") // моя апишка
+        .baseUrl("https://drive.usercontent.google.com/") // моя апишка
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
