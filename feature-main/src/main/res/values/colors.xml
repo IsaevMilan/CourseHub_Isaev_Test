@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="auth_bg">#121212</color>
+    <color name="auth_white">#F2F2F3</color>
+    <color name="auth_field_bg">#2B2B2B</color>
+    <color name="auth_green">#12B956</color>
+    <color name="auth_vk">#4C75A3</color>
+    <color name="auth_ok">#F58220</color>
+    <color name="auth_text_grey">#BDBDBD</color>
+    <color name="dark_grey">#24252A</color>
+
+    <!-- Кнопки -->
+    <color name="btn_login_start">#FFF98509</color>
+    <color name="btn_login_end">#FFF95D00</color>
+    <color name="btn_vk">#2683ED</color>
+    <color name="btn_ok">#2683ED</color>
+</resources>

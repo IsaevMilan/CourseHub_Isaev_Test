@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="registration">Регистрация</string>
+    <string name="lost_password">Забыл пароль</string>
+    <string name="no_account">Нету аккаунта?</string>
+    <string name="password">Пароль</string>
+    <string name="input_password">Введите пароль</string>
+    <string name="enter">Вход</string>
+    <string name="email">Email</string>
+    <string name="example_email">example@gmail.com</string>
+    <string name="java_dev">Java-разработчик с нуля</string>
+    <string name="backend_courses">Освойте backend-разработку...</string>
+    <string name="price_of_courses">999 ₽</string>
+    <string name="more_about_courses">Подробнее →</string>
+    <string name="sort_by_date">По дате добавления</string>
+    <string name="search_courses">Search courses...</string>
+    <string name="profile">Профиль</string>
+    <string name="favorite_fragment">Избранное</string>
+</resources>
