@@ -3,5 +3,5 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="500"
-        android:font="@font/roboto_medium"/>
+        android:font="@font/roboto"/>
 </font-family>
