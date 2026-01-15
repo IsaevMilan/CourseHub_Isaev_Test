@@ -2,7 +2,7 @@ package com.example.feature_main.presentation.adapter
 
 import android.graphics.Color
 import com.example.domain.models.Courses
-import com.example.feature_main.databinding.ItemCourseBinding
+import com.example.feature_auth.databinding.ItemCourseBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 fun courseAdapterDelegate(onLikeClick: (Courses) -> Unit) =
@@ -12,12 +12,12 @@ fun courseAdapterDelegate(onLikeClick: (Courses) -> Unit) =
         bind {
             binding.tvTitle.text = item.title
             binding.tvPrice.text = item.price
-            binding.tvRate.text = item.rate.toString()
+//            binding.tvRate.text = item.rate.toString()
 
-            // Ограничение в 2 строки (настраивается в XML, здесь просто сетим текст)
+            // Ограничение в 2 строки
             binding.tvDescription.text = item.text
 
-            // Если лайк есть — зеленая иконка (по ТЗ)
+            // Если лайк есть — зеленая иконка
             val color = if (item.hasLike) Color.GREEN else Color.GRAY
             binding.ivLike.setColorFilter(color)
 
