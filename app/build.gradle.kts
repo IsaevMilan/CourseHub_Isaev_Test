@@ -53,6 +53,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
 
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
+
     // Navigation
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)

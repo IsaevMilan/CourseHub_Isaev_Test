@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CourseRepository {
     fun getCourses(): Flow<List<Courses>>
-    suspend fun toggleLike(courseId: Int) // Для Room в будущем
+    suspend fun toggleLike(courseId: Int) // Room
 }

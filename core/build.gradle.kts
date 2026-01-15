@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     // Архитектура
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)

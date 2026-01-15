@@ -30,6 +30,13 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":core"))
 
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    // Dagger
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+
     // UI и Lifecycle
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)

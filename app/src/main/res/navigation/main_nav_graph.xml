@@ -5,25 +5,25 @@
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/auth_fragment">
 
-    <!-- Экран авторизации -->
     <fragment
         android:id="@+id/auth_fragment"
         android:name="com.example.feature_auth.presentation.AuthFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_main">
-        <!-- Переход на главный экран после входа -->
-        <action
-            android:id="@+id/action_auth_to_main"
-            app:destination="@id/main_fragment"
-            app:popUpTo="@id/auth_fragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_auth" />
 
-    <!-- Главный экран (с BottomBar внутри) -->
-    <fragment
+   <!-- <fragment
         android:id="@+id/main_fragment"
         android:name="com.example.feature_main.presentation.MainFragment"
-        android:label="Main"
-        tools:layout="@layout/fragment_main" />
+        android:label="Главная" />
+
+    <fragment
+        android:id="@+id/favorites_fragment"
+        android:name="com.example.feature_main.presentation.FavoritesFragment"
+        android:label="Избранное" />
+
+    <fragment
+        android:id="@+id/account_fragment"
+        android:name="com.example.feature_main.presentation.AccountFragment"
+        android:label="Аккаунт" />-->
 
 </navigation>

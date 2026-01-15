@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">CourseHub_Isaev_Test</string>
+
+        <!-- Auth -->
+        <string name="login_title">Вход</string>
+        <string name="email">Email</string>
+        <string name="email_placeholder">example@gmail.com</string>
+        <string name="password">Пароль</string>
+        <string name="password_placeholder">Введите пароль</string>
+        <string name="forgot_password">Забыл пароль</string>
+        <string name="no_account_registration">Нету аккаунта? Регистрация</string>
+
+        <!-- Support -->
+        <string name="contact_support">Написать в поддержку</string>
+
+        <!-- Settings / Account -->
+        <string name="settings">Настройки</string>
+        <string name="logout">Выйти из аккаунта</string>
+
+        <!-- Search -->
+        <string name="search_courses">Search courses...</string>
+
+        <!-- Bottom navigation -->
+        <string name="tab_home">Главная</string>
+        <string name="tab_favorites">Избранное</string>
+        <string name="tab_account">Аккаунт</string>
+
+        <!-- Profile -->
+        <string name="profile">Профиль</string>
+        <string name="your_courses">Ваши курсы</string>
+    <string name="main">Главная</string>
+    <string name="favorite">Избранное</string>
+    <string name="account">Аккаунт</string>
 </resources>
