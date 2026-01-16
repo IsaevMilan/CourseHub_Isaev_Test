@@ -4,8 +4,10 @@ package com.example.data.remote.repository
 import com.example.data.remote.network_client.CourseApi
 import com.example.domain.models.Courses
 import com.example.domain.repository.CourseRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class CourseRepositoryImpl @Inject constructor(
@@ -22,7 +24,7 @@ class CourseRepositoryImpl @Inject constructor(
             )
         }
         emit(domainList)
-    }
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun toggleLike(courseId: Int) {
         // Тут будет логика Room или нет))) пока так :):)

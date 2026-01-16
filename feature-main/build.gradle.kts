@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature_auth" // или feature_main
+    namespace = "com.example.feature_auth"
     compileSdk = 34
 
     defaultConfig {

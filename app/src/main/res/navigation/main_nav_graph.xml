@@ -9,21 +9,28 @@
         android:id="@+id/auth_fragment"
         android:name="com.example.feature_auth.presentation.AuthFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_auth" />
+        tools:layout="@layout/fragment_auth">
 
-   <!-- <fragment
+        <action
+            android:id="@+id/action_auth_to_main"
+            app:destination="@id/main_fragment"
+            app:popUpTo="@id/auth_fragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_auth_fragment_self"
+            app:destination="@id/auth_fragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/main_fragment"
-        android:name="com.example.feature_main.presentation.MainFragment"
-        android:label="Главная" />
+        android:name="com.example.feature_main.presentation.MainFragment" />
 
     <fragment
         android:id="@+id/favorites_fragment"
-        android:name="com.example.feature_main.presentation.FavoritesFragment"
-        android:label="Избранное" />
+        android:name="com.example.feature_main.presentation.FavoritesFragment" />
 
     <fragment
         android:id="@+id/account_fragment"
-        android:name="com.example.feature_main.presentation.AccountFragment"
-        android:label="Аккаунт" />-->
+        android:name="com.example.feature_main.presentation.AccountFragment" />
 
 </navigation>
