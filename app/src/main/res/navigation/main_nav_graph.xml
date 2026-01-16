@@ -16,6 +16,9 @@
             app:destination="@id/main_fragment"
             app:popUpTo="@id/auth_fragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_auth_fragment_self"
+            app:destination="@id/auth_fragment" />
     </fragment>
 
     <fragment

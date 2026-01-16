@@ -13,13 +13,11 @@ class AuthViewModel @Inject constructor(
     private val _email = MutableStateFlow("")
     private val _password = MutableStateFlow("")
 
-    // Экспонируем Flow для активности кнопки
     val isLoginEnabled: StateFlow<Boolean> = combine(_email, _password) { email, pass ->
         validateLoginUseCase.execute(email, pass)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
 
     fun onEmailChanged(text: String) {
-        // Проверка на кириллицу перед сохранением в стейт
         if (!text.any { it in 'а'..'я' || it in 'А'..'Я' }) {
             _email.value = text
         }

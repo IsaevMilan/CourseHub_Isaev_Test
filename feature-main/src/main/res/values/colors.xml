@@ -8,6 +8,7 @@
     <color name="auth_ok">#F58220</color>
     <color name="auth_text_grey">#BDBDBD</color>
     <color name="dark_grey">#24252A</color>
+    <color name="stroke">#4D555E</color>
 
     <!-- Кнопки -->
     <color name="btn_login_start">#FFF98509</color>

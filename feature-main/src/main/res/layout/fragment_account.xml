@@ -2,9 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/auth_bg"
-    android:paddingTop="16dp">
+    android:paddingTop="48dp">
 
     <LinearLayout
         android:id="@+id/tvTitle"
@@ -29,13 +28,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnSort"
         android:layout_width="match_parent"
-        android:layout_height="122dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:padding="10dp"
         android:background="@drawable/course_background"
         android:clickable="true"
         android:focusable="true"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
@@ -49,8 +47,7 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/divider1"
             app:layout_constraintEnd_toStartOf="@id/ivArrow1"
-            app:layout_constraintStart_toStartOf="parent"
-             />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/ivArrow1"
@@ -66,6 +63,7 @@
             android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:backgroundTint="@color/stroke"
             android:layout_marginTop="10dp"
             android:background="@color/auth_field_bg"
             app:layout_constraintTop_toBottomOf="@id/tvSortTitle" />
@@ -81,8 +79,7 @@
             android:fontFamily="@font/roboto_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/ivArrow2"
-            app:layout_constraintTop_toBottomOf="@id/divider1"
-             />
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
 
         <ImageView
             android:id="@+id/ivArrow2"
@@ -99,6 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/stroke"
             android:background="@color/auth_field_bg"
             app:layout_constraintTop_toBottomOf="@id/tvSortTitle2" />
 
@@ -114,7 +112,7 @@
             app:layout_constraintEnd_toStartOf="@id/ivArrow3"
             app:layout_constraintTop_toBottomOf="@id/divider2"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
 
         <ImageView
             android:id="@+id/ivArrow3"
@@ -124,7 +122,8 @@
             android:tint="@color/auth_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvSortTitle3"
-            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle3"/>
+            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -147,17 +146,19 @@
             android:textSize="22sp" />
     </LinearLayout>
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <ImageView
         android:id="@+id/rvCourses"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:clipToPadding="false"
-        android:paddingBottom="80dp"
-        tools:listitem="@layout/item_course"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="526dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/content_account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
+    <include
+        layout="@layout/progress_bar"
+        android:id="@+id/progressView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,10 @@ package com.example.feature_main.presentation
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.core.base.BaseFragment
 import com.example.core.di.AppDependenciesProvider
@@ -11,18 +14,26 @@ import com.example.feature_main.di.DaggerMainComponent
 import com.example.feature_main.presentation.adapter.courseAdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
-    @Inject
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by lazy {
+        val factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+
+                val provider = requireActivity() as MainComponentProvider
+                return provider.getMainComponent().getViewModel() as T
+            }
+        }
+        ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
+    }
 
     // Инициализируем адаптер через делегат
     private val adapter = ListDelegationAdapter(
-        courseAdapterDelegate(
-            onLikeClick = { course -> viewModel.toggleLike(courseId = course.id) }
-        )
+        courseAdapterDelegate { course ->
+            Log.d("MainFr", "Нажали на лайк ${course.id} hasLike=${course.hasLike}")
+            viewModel.toggleLike(course.id)
+        }
     )
 
     override fun onAttach(context: Context) {
@@ -37,7 +48,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,14 +58,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             viewModel.sortCourses()
         }
 
-        // Подписываемся на данные
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.courses.collect { list ->
                 adapter.items = list
                 adapter.notifyDataSetChanged()
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.isLoading.collect { loading ->
+                binding.progressView.root.visibility =
+                    if (loading) View.VISIBLE else View.GONE
+            }
+        }
     }
 }
-
-

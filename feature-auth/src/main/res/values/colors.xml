@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="auth_bg">#121212</color>
     <color name="auth_white">#F2F2F3</color>
     <color name="auth_field_bg">#2B2B2B</color>
