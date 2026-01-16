@@ -1,0 +1,164 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/auth_bg"
+    android:paddingTop="48dp">
+
+    <LinearLayout
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textColor="@color/auth_white"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="10dp"
+        android:background="@drawable/course_background"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <TextView
+            android:id="@+id/tvSortTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Написать в поддержку"
+            android:textColor="@color/auth_white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/divider1"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivArrow1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon"
+            android:tint="@color/auth_white"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSortTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:backgroundTint="@color/stroke"
+            android:layout_marginTop="10dp"
+            android:background="@color/auth_field_bg"
+            app:layout_constraintTop_toBottomOf="@id/tvSortTitle" />
+
+        <TextView
+            android:id="@+id/tvSortTitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Настройки"
+            android:textColor="@color/auth_white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow2"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <ImageView
+            android:id="@+id/ivArrow2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon"
+            android:tint="@color/auth_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSortTitle2"
+            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle2"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/stroke"
+            android:background="@color/auth_field_bg"
+            app:layout_constraintTop_toBottomOf="@id/tvSortTitle2" />
+
+        <TextView
+            android:id="@+id/tvSortTitle3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Выйти из аккаунта"
+            android:textColor="@color/auth_white"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivArrow3"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:id="@+id/ivArrow3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon"
+            android:tint="@color/auth_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSortTitle3"
+            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/tvTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSort">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Ваши уроки"
+            android:textColor="@color/auth_white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/rvCourses"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/content_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
+    <include
+        layout="@layout/progress_bar"
+        android:id="@+id/progressView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

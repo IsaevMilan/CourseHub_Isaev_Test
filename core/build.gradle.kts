@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     // Архитектура
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
@@ -40,9 +42,9 @@ dependencies {
     kapt(libs.dagger.compiler)
 
     // Сеть
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
-    implementation(libs.okhttp.logging)
+    api(libs.retrofit)
+    api(libs.retrofit.gson)
+    api(libs.okhttp.logging)
 
     // Lifecycle
     implementation(libs.lifecycle.viewmodel)
