@@ -3,27 +3,24 @@ package com.example.feature_main.presentation
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import com.example.feature_auth.R
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.core.base.BaseFragment
 import com.example.core.di.AppDependenciesProvider
-import com.example.feature_auth.databinding.FragmentMainBinding
+import com.example.feature_auth.databinding.FragmentFavoriteBinding
 import com.example.feature_main.di.DaggerMainComponent
 import com.example.feature_main.presentation.adapter.courseAdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+class FavoritesFragment : BaseFragment<FragmentFavoriteBinding>(FragmentFavoriteBinding::inflate) {
 
     @Inject
     lateinit var viewModel: MainViewModel
 
-    // Инициализируем адаптер через делегат
-    private val adapter = ListDelegationAdapter(
-        courseAdapterDelegate(
-            onLikeClick = { course -> viewModel.toggleLike(courseId = course.id) }
-        )
-    )
+    private val adapter = ListDelegationAdapter(courseAdapterDelegate { })
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,26 +33,16 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             .inject(this)
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.rvCourses.adapter = adapter
 
-        // Кнопка сортировки по ТЗ
-        binding.btnSort.setOnClickListener {
-            viewModel.sortCourses()
-        }
-
-        // Подписываемся на данные
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.courses.collect { list ->
-                adapter.items = list
+                // только избранное
+                adapter.items = list.filter { it.hasLike }
                 adapter.notifyDataSetChanged()
             }
         }
     }
 }
-
-

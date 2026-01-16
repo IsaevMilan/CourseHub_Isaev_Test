@@ -33,4 +33,15 @@ class MainViewModel @Inject constructor(
         // Сортировка по убыванию даты публикации
         _courses.value = _courses.value.sortedByDescending { it.publishDate }
     }
+
+
+    fun toggleLike(courseId: Int) {
+        val currentList = _courses.value.toMutableList()
+        val index = currentList.indexOfFirst { it.id == courseId }
+        if (index != -1) {
+            val course = currentList[index]
+            currentList[index] = course.copy(hasLike = !course.hasLike)
+            _courses.value = currentList
+        }
+    }
 }

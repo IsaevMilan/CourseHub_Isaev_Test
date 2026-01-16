@@ -12,9 +12,7 @@ fun courseAdapterDelegate(onLikeClick: (Courses) -> Unit) =
         bind {
             binding.tvTitle.text = item.title
             binding.tvPrice.text = item.price
-//            binding.tvRate.text = item.rate.toString()
-
-            // Ограничение в 2 строки
+            binding.tvRate.text = item.rate.toString()
             binding.tvDescription.text = item.text
 
             // Если лайк есть — зеленая иконка
