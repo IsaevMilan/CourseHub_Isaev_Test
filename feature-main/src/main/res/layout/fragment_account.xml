@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
-            android:text="Написать в поддержку"
+            android:text="@string/support"
             android:textColor="@color/auth_white"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/divider1"
@@ -54,10 +54,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/icon"
-            android:tint="@color/auth_white"
             app:layout_constraintBottom_toBottomOf="@+id/tvSortTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/auth_white" />
 
         <View
             android:id="@+id/divider1"
@@ -72,7 +72,7 @@
             android:id="@+id/tvSortTitle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Настройки"
+            android:text="@string/settings"
             android:textColor="@color/auth_white"
             android:textSize="14sp"
             android:layout_marginTop="10dp"
@@ -86,10 +86,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/icon"
-            android:tint="@color/auth_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvSortTitle2"
-            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle2"/>
+            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle2"
+            app:tint="@color/auth_white" />
 
         <View
             android:id="@+id/divider2"
@@ -104,7 +104,7 @@
             android:id="@+id/tvSortTitle3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Выйти из аккаунта"
+            android:text="@string/logout"
             android:textColor="@color/auth_white"
             android:textSize="14sp"
             android:fontFamily="@font/roboto_medium"
@@ -119,20 +119,21 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/icon"
-            android:tint="@color/auth_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvSortTitle3"
-            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle3" />
+            app:layout_constraintBottom_toBottomOf="@id/tvSortTitle3"
+            app:tint="@color/auth_white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/tvTitle2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSort">
@@ -141,24 +142,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Ваши уроки"
+            android:text="@string/your_courses"
             android:textColor="@color/auth_white"
             android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/rvCourses"
+            android:layout_width="match_parent"
+            android:layout_height="466dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/content_account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/rvCourses"
-        android:layout_width="match_parent"
-        android:layout_height="486dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/content_account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
 
-    <include
-        layout="@layout/progress_bar"
-        android:id="@+id/progressView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
