@@ -32,17 +32,39 @@ class MainViewModel @Inject constructor(
         loadCourses()
     }
 
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error.asStateFlow()
+
     fun loadCourses() {
         viewModelScope.launch {
             _isLoading.value = true
+            _error.value = null
             delay(300)
-            val newList = getCoursesUseCase().first() // берем один раз
-            _courses.value = newList.map { course ->
-                course.copy(hasLike = likedIds.contains(course.id))
+            try {
+                val newList = getCoursesUseCase().first() // берем один раз
+                _courses.value = newList.map { course ->
+                    course.copy(hasLike = likedIds.contains(course.id))
+                }
+            } catch (e: Exception) {
+                _error.value = when (e) {
+                    is java.net.UnknownHostException ->
+                        "Нет подключения к интернету"
+
+                    is java.net.SocketTimeoutException ->
+                        "Превышено время ожидания"
+
+                    is retrofit2.HttpException ->
+                        "Ошибка сервера (${e.code()})"
+
+                    else ->
+                        "Произошла ошибка"
+                }
+                _error.value = null
+            } finally {
+                _isLoading.value = false
             }
-            _isLoading.value = false
-            Log.d("MainViewModel", "Loaded courses: ${_courses.value.map { it.id to it.hasLike }}")
         }
+
     }
 
     fun sortCourses() {

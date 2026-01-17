@@ -18,13 +18,20 @@ class CourseRepositoryImpl @Inject constructor(
         val dto = api.getCourses()
         val domainList = dto.courses.map {
             Courses(
-                id = it.id, title = it.title, text = it.text,
-                price = it.price, rate = it.rate, startDate = it.startDate,
-                hasLike = it.hasLike, publishDate = it.publishDate
+                id = it.id,
+                title = it.title,
+                text = it.text,
+                price = it.price,
+                rate = it.rate,
+                startDate = it.startDate,
+                hasLike = it.hasLike,
+                publishDate = it.publishDate
             )
         }
+
         emit(domainList)
-    }.flowOn(Dispatchers.IO)
+    }
+        .flowOn(Dispatchers.IO)
 
     override suspend fun toggleLike(courseId: Int) {
         // Тут будет логика Room или нет))) пока так :):)
